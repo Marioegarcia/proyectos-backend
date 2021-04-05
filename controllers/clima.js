@@ -13,7 +13,9 @@ async function clima(req,res) {
       'access_token': MAPBOX_KEY,
       'limit': 5,
       'language': 'es'
-    }
+    },
+    headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+
   })
   const  resp =  await intance.get();
 
@@ -28,7 +30,7 @@ function temperatura(req,res) {
   
   const lon = req.body[0];
   const lat = req.body[1];
-console.log(req.body);
+
   axios.get('https://api.openweathermap.org/data/2.5/weather', {
     params: {
       lat:lat,
@@ -36,7 +38,8 @@ console.log(req.body);
       appid:'8f0a2d1b46c409ef0bca159104a01d12',
       lang:'es',
       units:'metric'
-    }
+    },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   })
   .then(function (response) {
     

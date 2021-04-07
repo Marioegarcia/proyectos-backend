@@ -3,26 +3,42 @@ const { MAPBOX_KEY, OPEN_WEATHER_KEY } = require("../config");
 
 
 
-async function clima(req,res) {
-  
+function clima(req,res) {
+  console.log('clima');
   const data = req.body;
   
   const lugar = data.ciudad;
-  const intance = axios.create({
-    baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+  
+  axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`, {
     params: {
       'access_token': MAPBOX_KEY,
       'limit': 5,
       'language': 'es'
     },
     headers:{'Content-Type': 'application/x-www-form-urlencoded'}
-
   })
-  const  resp =  await intance.get();
+  .then(function (response) {
+     res.status(200).send({ code: 200, message: response.data.features });
+  })
+  .catch(function error(error) {
+    console.log(error);
+  })
 
-  if(resp){
-    res.status(200).send({ code: 200, message: resp.data.features });
-  }
+  // const intance = axios.create({
+  //   baseURL:`https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+  //   params: {
+  //     'access_token': MAPBOX_KEY,
+  //     'limit': 5,
+  //     'language': 'es'
+  //   },
+  //   headers:{'Content-Type': 'application/x-www-form-urlencoded'}
+
+  // })
+  // const  resp =  await intance.get();
+
+  // if(resp){
+  //   res.status(200).send({ code: 200, message: resp.data.features });
+  // }
 
 
 }

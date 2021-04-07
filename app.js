@@ -1,8 +1,9 @@
 const express = require("express");
-
+const cors = require("cors");
 
 const app = express();
 const { API_VERSION } = require("./config");
+
 
 // Load routings
 const climaRoutes = require("./routers/clima");
@@ -11,7 +12,7 @@ const userRoutes = require("./routers/user");
 // const newsletterRoutes = require("./routers/newsletter");
 // const courseRoutes = require("./routers/course");
 // const postRoutes = require("./routers/post");
-
+app.use(cors())
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 

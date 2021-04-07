@@ -4,6 +4,7 @@ const { MAPBOX_KEY, OPEN_WEATHER_KEY } = require("../config");
 
 
 async function clima(req,res) {
+  
   const data = req.body;
   
   const lugar = data.ciudad;

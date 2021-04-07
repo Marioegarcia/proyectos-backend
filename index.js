@@ -15,7 +15,7 @@ mongoose.connect(
     } else {
       console.log("La conexion a la base de datos es correcta.");
 
-      app.listen(port, () => {
+      app.listen(process.env.PORT, '0.0.0.0', () => {
         console.log("######################");
         console.log("###### API REST ######");
         console.log("######################");

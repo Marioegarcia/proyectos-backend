@@ -4,7 +4,7 @@ const { MAPBOX_KEY, OPEN_WEATHER_KEY } = require("../config");
 
 
 function clima(req,res) {
-  console.log('clima');
+ 
   const data = req.body;
   
   const lugar = data.ciudad;
@@ -47,7 +47,7 @@ function temperatura(req,res) {
   
   const lon = req.body[0];
   const lat = req.body[1];
-
+  
   axios.get('https://api.openweathermap.org/data/2.5/weather', {
     params: {
       lat:lat,
@@ -98,7 +98,10 @@ function temperatura(req,res) {
 
 
 
+
+
 module.exports = {
     clima,
     temperatura,
+    
 }

@@ -36,7 +36,7 @@ function getVisitas(req, res) {
 
 function deleteVisita(req, res) {
     const { id } = req.params;
-  
+    
     Visitas.findByIdAndRemove(id, (err, postDeleted) => {
       if (err) {
         res.status(500).send({ code: 500, message: "Error del servidor." });

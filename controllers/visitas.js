@@ -34,9 +34,29 @@ function getVisitas(req, res) {
     });
 }
 
+function deleteVisita(req, res) {
+    const { id } = req.params;
+  
+    Visitas.findByIdAndRemove(id, (err, postDeleted) => {
+      if (err) {
+        res.status(500).send({ code: 500, message: "Error del servidor." });
+      } else {
+        if (!postDeleted) {
+          res.status(404).send({ code: 404, message: "Visita no encontrada." });
+        } else {
+          res.status(200).send({
+            code: 200,
+            message: "La visita ha sido eliminada correctamente."
+          });
+        }
+      }
+    });
+  }
+
 
 
 module.exports = {
     resgisto,
-    getVisitas
+    getVisitas,
+    deleteVisita
 }

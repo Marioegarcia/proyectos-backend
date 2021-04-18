@@ -16,6 +16,7 @@ io.on("connection", (socket) => {
 
   socket.on("mensaje", (nombre, mensaje) => {
     //io.emit manda el mensaje a todos los clientes conectados al chat
+    console.log(mensaje);
     io.emit("mensajes", { nombre, mensaje });
   });
 

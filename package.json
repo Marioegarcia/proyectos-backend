@@ -11,11 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.6",
     "colors": "^1.4.0",
     "cors": "^2.8.5",
+    "cron": "^1.8.2",
     "express": "^4.17.1",
     "inquirer": "^8.0.0",
     "mongoose": "^5.12.2",
+    "puppeteer": "^8.0.0",
+    "puppeteer-autoscroll-down": "^0.1.6",
     "socket.io": "^4.0.1"
   },
   "devDependencies": {

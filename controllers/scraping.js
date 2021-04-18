@@ -43,6 +43,7 @@ async function mercadolibre(req, res) {
   const busqueda = req.body;
  
 
+  console.log(busqueda);
   
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

@@ -5,7 +5,7 @@ const CronJob = require("cron").CronJob;
 
 async function amazon(req, res) {
   const url = req.body.url;
-  const busqueda = req.body.busqueda;
+  const busqueda = req.body;
 
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -42,9 +42,6 @@ async function mercadolibre(req, res) {
   
   const busqueda = req.body;
  
-
-  console.log(busqueda);
-
   const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
@@ -81,7 +78,7 @@ async function mercadolibre(req, res) {
  
 
   await browser.close();
-  res.status(200).send({ mercado:articulos ,message:"Articulos mercado libre" });
+  res.status(200).send({ mercado:articulos ,message:"Articulos mercadolibre" });
 
  
 }

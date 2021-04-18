@@ -45,7 +45,7 @@ async function mercadolibre(req, res) {
 
   console.log(busqueda);
 
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
   await page.goto("https://www.mercadolibre.com.mx/");
